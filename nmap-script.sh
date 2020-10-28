@@ -1,9 +1,9 @@
 #!/bin/bash
-
-# This is a simple script that will automate the process of doing an nmap scan by simply scanning
-# the target for open ports and directing the output to another nmap scan with -sV -sC flag for
-# Service/Version detection and scanning using default scripts.
-
+: '
+This is a simple script that will automate the process of doing an nmap scan by simply scanning
+the target for open ports and directing the output to another nmap scan with -sV -sC flag for
+Service/Version detection and scanning using default scripts.
+'
 if [ $# -eq 0 ]
   then
     echo -e "\e[31m[-] Usage: ./nmap-script <IP-ADDRESS>\e[39m"
