@@ -10,8 +10,13 @@ if [ $# -eq 0 ]
     exit 1
 fi
 
+if [  ${#1} -ge 16 ]; then 
+	echo -e "\e[31m[-] Please supply a valid IP address."
+	exit 1
+fi
+
 if [[ $1 =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-	mkdir nmap-scan
+	mkdir nmap-scan 2>/dev/null
 	echo -e "\e[32m[*] Initiating port scan on target.\e[39m"
 	echo -e "\e[32m[*] Results will be saved to nmap-scan/$1.portscan file.\e[39m"
 	ports=$(nmap -oN nmap-scan/$1.portscan $1 | grep open | cut -d"/" -f1 | tr '\n' ',' | sed 's/.$//');
